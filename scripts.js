@@ -12,7 +12,7 @@ function Book(title, author, pages, read) {
     else {
       const readStatus = "not yet read";
     };
-    console.log(`${title} by ${author}, ${pages} pages, ${readStatus}.`);
+    return `${title} by ${author}, ${pages} pages, ${readStatus}.`;
   };
 };
 

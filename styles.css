@@ -1,0 +1,28 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+form {
+  display: grid;
+  grid-template-rows: repeat(5, 30px);
+}
+
+#header {
+  display: grid;
+  justify-content: center;
+}
+
+#inputs {
+  display: grid;
+  width: 70%;
+  justify-content: center;
+}
+
+#left {
+  background: gray;
+}
+
+#read-radio {
+  display: flex;
+}

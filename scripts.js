@@ -6,16 +6,18 @@ function Book(title, author, pages, read) {
   this.pages = pages
   this.read = read
   this.info = function() {
+    let readStatus = "not yet read"
     if (read === "yes") {
-      const readStatus = "already read";
+      readStatus = "already read";
     }
-    else {
-      const readStatus = "not yet read";
-    };
     return `${title} by ${author}, ${pages} pages, ${readStatus}.`;
   };
 };
 
-function addBookToLibrary() {
-
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 };
+
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");
+
+console.log(theHobbit.info());

@@ -19,5 +19,21 @@ function addBookToLibrary(book) {
 };
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");
+const theNameOfTheWind = new Book("The Name of The Wind", "Patrick Rothfuss", 662, "yes");
+const theLiesOfLockeLamora = new Book("The Lies of Locke Lamora", "Scott Lynch", 499, "yes");
+const halfAKing = new Book("Half A King", "Joe Abercrombie", 352, "yes");
+const theWiseMansFear = new Book("The Wise Man's Fear", "Patrick Rothfuss", 1120, "yes");
+const doorsOfStone = new Book("Doors of Stone", "Patrick Rothfuss", 0, "no");
+const aGameOfThrones = new Book("A Game of Thrones", "George R.R. Martin", 694, "yes");
+const theWindsofWinter = new Book("The Winds of Winter", "George R.R. Martin", 0, "no");
 
-console.log(theHobbit.info());
+addBookToLibrary(theHobbit);
+addBookToLibrary(theNameOfTheWind);
+addBookToLibrary(theLiesOfLockeLamora);
+addBookToLibrary(halfAKing);
+addBookToLibrary(theWiseMansFear);
+addBookToLibrary(doorsOfStone);
+addBookToLibrary(aGameOfThrones);
+addBookToLibrary(theWindsofWinter);
+
+console.log(myLibrary);

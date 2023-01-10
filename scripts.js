@@ -1,5 +1,11 @@
 const myLibrary = [];
 
+const titleElement = document.querySelector('#title');
+const authorElement = document.querySelector('#author');
+const pagesElement = document.querySelector('#pages');
+const readElement = document.querySelector('#read');
+const unreadElement = document.querySelector('#unread');
+
 function Book(title, author, pages, read) {
   this.title = title
   this.author = author

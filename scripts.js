@@ -1,11 +1,13 @@
 const myLibrary = [];
 
+// DOM Selectors
 const titleElement = document.querySelector('#title');
 const authorElement = document.querySelector('#author');
 const pagesElement = document.querySelector('#pages');
 const readElement = document.querySelector('#read');
 const unreadElement = document.querySelector('#unread');
 
+// Book Constructor
 function Book(title, author, pages, read) {
   this.title = title
   this.author = author
@@ -20,10 +22,12 @@ function Book(title, author, pages, read) {
   };
 };
 
+// Add Book to Library
 function addBookToLibrary(book) {
   myLibrary.push(book);
 };
 
+// Book Objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");
 const theNameOfTheWind = new Book("The Name of The Wind", "Patrick Rothfuss", 662, "yes");
 const theLiesOfLockeLamora = new Book("The Lies of Locke Lamora", "Scott Lynch", 499, "yes");

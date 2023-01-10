@@ -6,6 +6,7 @@ const authorElement = document.querySelector('#author');
 const pagesElement = document.querySelector('#pages');
 const readElement = document.querySelector('#read');
 const unreadElement = document.querySelector('#unread');
+const tableElement = document.querySelector('#table');
 
 // Book Constructor
 function Book(title, author, pages, read) {
@@ -25,6 +26,12 @@ function Book(title, author, pages, read) {
 // Add Book to Library
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  bookIndex = myLibrary[(myLibrary.length() - 1)];
+  tableElement.appendChild('tr');
+  // add id to tr, but only the one just created (so lastChild)
+  // use that id to then append td elements
+  // add classes to each of those td elements and relate them to the properties of the books
+  // enter the content of bookIndex into corresponding td
 };
 
 // Book Objects

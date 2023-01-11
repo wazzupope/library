@@ -73,4 +73,4 @@ addBookToLibrary(doorsOfStone);
 addBookToLibrary(aGameOfThrones);
 addBookToLibrary(theWindsofWinter);
 
-console.log(myLibrary);
+// need to edit how .readStatus is called rather than .textContent so that you just get what is returned rather than the text

@@ -6,7 +6,7 @@ const authorElement = document.querySelector('#author');
 const pagesElement = document.querySelector('#pages');
 const readElement = document.querySelector('#read');
 const unreadElement = document.querySelector('#unread');
-const tableElement = document.querySelector('#table');
+const cardGrid = document.querySelector('#cardGrid');
 
 // Book Constructor
 function Book(title, author, pages, read) {
@@ -14,24 +14,44 @@ function Book(title, author, pages, read) {
   this.author = author
   this.pages = pages
   this.read = read
-  this.info = function() {
-    let readStatus = "not yet read"
+  this.readStatus = function() {
+    let readOrNot = "Read: No";
     if (read === "yes") {
-      readStatus = "already read";
+      readOrNot = "Read: Yes";
     }
-    return `${title} by ${author}, ${pages} pages, ${readStatus}.`;
+    return readOrNot;
   };
 };
 
 // Add Book to Library
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  bookIndex = myLibrary[(myLibrary.length() - 1)];
-  tableElement.appendChild('tr');
-  // add id to tr, but only the one just created (so lastChild)
-  // use that id to then append td elements
-  // add classes to each of those td elements and relate them to the properties of the books
-  // enter the content of bookIndex into corresponding td
+  bookIndex = myLibrary.length() - 1;
+  const card = getElementById(`card${bookIndex}`);
+  // Create DOM element for card
+  cardGrid.appendChild('div');
+  cardGrid.lastChild.setAttribute("id", `card${bookIndex}`);
+  cardGrid.lastChild.setAttribute("class", "cardBox");
+  // Create DOM element for title within card
+  card.appendChild('h2');
+  card.lastChild.setAttribute("class", "cardTitle");
+  card.lastChild.textContent = myLibrary[bookIndex].title;
+  // Create Dom element for author within card
+  card.appendChild('span');
+  card.lastChild.setAttribute("class", "cardAuthor");
+  card.lastChild.textContent = myLibrary[bookIndex].author;
+  // Create DOM element for pages within card
+  card.appendChild('span');
+  card.lastChild.setAttribute("class", "cardPages");
+  card.lastChild.textContent = myLibrary[booxIndex].pages;
+  // Create DOM element for read status within card
+  card.appendChild('span');
+  card.lastChild.setAttribute("class", "cardRead");
+  card.lastChild.textContent = myLibrary[bookIndex].readStatus;
+  // Create DOM element for remove button within card
+  card.appendChild('button');
+  card.lastChild.setAttribute("class", "removeButton");
+  card.lastChild.textContent = "Remove Book";
 };
 
 // Book Objects

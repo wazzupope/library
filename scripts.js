@@ -26,7 +26,7 @@ function Book(title, author, pages, read) {
 // Add Book to Library
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  const bookIndex = myLibrary.length() - 1;
+  const bookIndex = myLibrary.length - 1;
   // Create DOM element for card
   cardGrid.appendChild('div');
   cardGrid.lastChild.setAttribute("id", `card${bookIndex}`);

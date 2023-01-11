@@ -27,11 +27,11 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(book) {
   myLibrary.push(book);
   const bookIndex = myLibrary.length() - 1;
-  const card = getElementById(`card${bookIndex}`);
   // Create DOM element for card
   cardGrid.appendChild('div');
   cardGrid.lastChild.setAttribute("id", `card${bookIndex}`);
   cardGrid.lastChild.setAttribute("class", "cardBox");
+  const card = document.getElementById(`card${bookIndex}`);
   // Create DOM element for title within card
   card.appendChild('h2');
   card.lastChild.setAttribute("class", "cardTitle");

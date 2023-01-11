@@ -26,7 +26,7 @@ function Book(title, author, pages, read) {
 // Add Book to Library
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  bookIndex = myLibrary.length() - 1;
+  const bookIndex = myLibrary.length() - 1;
   const card = getElementById(`card${bookIndex}`);
   // Create DOM element for card
   cardGrid.appendChild('div');
@@ -43,7 +43,7 @@ function addBookToLibrary(book) {
   // Create DOM element for pages within card
   card.appendChild('span');
   card.lastChild.setAttribute("class", "cardPages");
-  card.lastChild.textContent = myLibrary[booxIndex].pages;
+  card.lastChild.textContent = myLibrary[bookIndex].pages;
   // Create DOM element for read status within card
   card.appendChild('span');
   card.lastChild.setAttribute("class", "cardRead");

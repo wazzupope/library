@@ -28,28 +28,28 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
   const bookIndex = myLibrary.length - 1;
   // Create DOM element for card
-  cardGrid.appendChild('div');
+  cardGrid.appendChild(document.createElement('div'));
   cardGrid.lastChild.setAttribute("id", `card${bookIndex}`);
   cardGrid.lastChild.setAttribute("class", "cardBox");
   const card = document.getElementById(`card${bookIndex}`);
   // Create DOM element for title within card
-  card.appendChild('h2');
+  card.appendChild(document.createElement('h2'));
   card.lastChild.setAttribute("class", "cardTitle");
   card.lastChild.textContent = myLibrary[bookIndex].title;
   // Create Dom element for author within card
-  card.appendChild('span');
+  card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardAuthor");
   card.lastChild.textContent = myLibrary[bookIndex].author;
   // Create DOM element for pages within card
-  card.appendChild('span');
+  card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardPages");
   card.lastChild.textContent = myLibrary[bookIndex].pages;
   // Create DOM element for read status within card
-  card.appendChild('span');
+  card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardRead");
   card.lastChild.textContent = myLibrary[bookIndex].readStatus;
   // Create DOM element for remove button within card
-  card.appendChild('button');
+  card.appendChild(document.createElement('button'));
   card.lastChild.setAttribute("class", "removeButton");
   card.lastChild.textContent = "Remove Book";
 };

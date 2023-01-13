@@ -25,7 +25,11 @@ form {
 }
 
 .removeButton {
-  
+
+}
+
+#cardGrid {
+  display: grid;
 }
 
 #header {

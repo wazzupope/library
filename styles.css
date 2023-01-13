@@ -34,10 +34,6 @@ label {
   margin: auto;
 }
 
-.removeButton {
-  margin: auto;
-}
-
 .inputs {
   display: grid;
   width: 80%;
@@ -66,4 +62,8 @@ label {
 #read-radio {
   display: flex;
   margin: 10px;
+}
+
+#removeButton {
+  margin: auto;
 }

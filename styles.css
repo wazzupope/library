@@ -33,6 +33,12 @@ form {
   margin: auto;
 }
 
+.inputs {
+  display: grid;
+  width: 70%;
+  justify-content: center;
+}
+
 #cardGrid {
   display: grid;
   grid-template-columns: 40% 40%;
@@ -45,11 +51,6 @@ form {
   justify-content: center;
 }
 
-#inputs {
-  display: grid;
-  width: 70%;
-  justify-content: center;
-}
 
 #left {
   background: gray;

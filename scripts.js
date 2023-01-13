@@ -63,9 +63,9 @@ const submit = document.querySelector('#submit');
 submit.addEventListener("click", submitAction);
 function submitAction(event) {
   event.preventDefault();
-  const newBookTitle = document.getElementById("#title").value;
-  const newBookAuthor = document.getElementById("#author").value;
-  const newBookPages = document.getElementById("#pages").value;
+  const newBookTitle = document.getElementById("title").value;
+  const newBookAuthor = document.getElementById("author").value;
+  const newBookPages = document.getElementById("pages").value;
   const newBookRead = function() {
     const radioButtons = document.getElementsByName("read_status");
     for (i = 0; i < radioButtons.length; i++) {

@@ -30,6 +30,9 @@ form {
 
 #cardGrid {
   display: grid;
+  grid-template-columns: 40% 40%;
+  gap: 20px 100px;
+  justify-content: center;
 }
 
 #header {

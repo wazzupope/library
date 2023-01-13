@@ -47,7 +47,7 @@ function addBookToLibrary(book) {
   // Create DOM element for read status within card
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardRead");
-  card.lastChild.textContent = myLibrary[bookIndex].readStatus;
+  card.lastChild.textContent = myLibrary[bookIndex].readStatus();
   // Create DOM element for remove button within card
   card.appendChild(document.createElement('button'));
   card.lastChild.setAttribute("class", "removeButton");

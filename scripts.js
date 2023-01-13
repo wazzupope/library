@@ -77,7 +77,10 @@ removeButton.addEventListener("click", removeCard);
 function removeCard() {
   document.querySelector(`#card${bookIndex}`)
 
-/* need to figure out how to get a click on a button with a class to remove only the card clicked on
+/* 
+.getElementsByClassName instead of querySelector, then loop to create the event listeners?
+
+need to figure out how to get a click on a button with a class to remove only the card clicked on
 probably need to add an id to each removeButton when created
 This may be why they were saying an index number should be added to each book
 You could use the index number on the id when creating the remove button, and then use that to also identify the card to be removed

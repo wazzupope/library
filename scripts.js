@@ -57,6 +57,13 @@ function addBookToLibrary(book) {
   card.lastChild.textContent = "Remove Book";
 };
 
+// Submit button handling
+const submit = document.querySelector('#submit');
+submit.addEventListener("click", submitAction);
+function submitAction(event) {
+  event.preventDefault();
+};
+
 // Book Objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");
 const theNameOfTheWind = new Book("The Name of The Wind", "Patrick Rothfuss", 662, "yes");
@@ -75,5 +82,3 @@ addBookToLibrary(theWiseMansFear);
 addBookToLibrary(doorsOfStone);
 addBookToLibrary(aGameOfThrones);
 addBookToLibrary(theWindsofWinter);
-
-// need to edit how .readStatus is called rather than .textContent so that you just get what is returned rather than the text

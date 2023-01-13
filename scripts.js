@@ -46,7 +46,7 @@ function addBookToLibrary(book) {
   // Create DOM element for pages within card
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardPages");
-  card.lastChild.textContent = myLibrary[bookIndex].pages;
+  card.lastChild.textContent = myLibrary[bookIndex].numOfPages();
   // Create DOM element for read status within card
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardRead");

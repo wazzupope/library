@@ -1,14 +1,6 @@
 /* eslint-disable no-plusplus */
 const myLibrary = [];
 
-// DOM Selectors
-const titleElement = document.querySelector('#title');
-const authorElement = document.querySelector('#author');
-const pagesElement = document.querySelector('#pages');
-const readElement = document.querySelector('#read');
-const unreadElement = document.querySelector('#unread');
-const cardGrid = document.querySelector('#cardGrid');
-
 // Book Constructor
 function Book(title, author, pages, read) {
   this.title = title
@@ -28,6 +20,7 @@ function Book(title, author, pages, read) {
 };
 
 // Add Book to Library
+const cardGrid = document.querySelector('#cardGrid');
 function addBookToLibrary(book) {
   myLibrary.push(book);
   const bookIndex = myLibrary.length - 1;

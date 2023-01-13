@@ -9,23 +9,28 @@ form {
 }
 
 .cardBox {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .cardTitle {
-
+  margin: auto;
 }
 
 .cardAuthor {
-
+  margin: auto;
 }
 
 .cardPages {
+  margin: auto;
+}
 
+.cardRead {
+  margin: auto;
 }
 
 .removeButton {
-
+  margin: auto;
 }
 
 #cardGrid {

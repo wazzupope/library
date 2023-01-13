@@ -8,6 +8,26 @@ form {
   grid-template-rows: repeat(5, 30px);
 }
 
+.cardBox {
+
+}
+
+.cardTitle {
+
+}
+
+.cardAuthor {
+
+}
+
+.cardPages {
+
+}
+
+.removeButton {
+  
+}
+
 #header {
   display: grid;
   justify-content: center;

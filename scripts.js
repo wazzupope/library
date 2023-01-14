@@ -1,7 +1,6 @@
 /* eslint-disable no-plusplus */
 const myLibrary = [];
 let indexNum = 0;
-const removeButtonArray = [];
 
 // Book Constructor
 function Book(title, author, pages, read) {
@@ -14,7 +13,7 @@ function Book(title, author, pages, read) {
   this.read = read
   this.readStatus = function() {
     let readOrNot = "Read: No";
-    if (read === "yes") {
+    if (read === "read") {
       readOrNot = "Read: Yes";
     }
     return readOrNot;
@@ -22,6 +21,11 @@ function Book(title, author, pages, read) {
   this.index = function() {
     return indexNum;
   };
+};
+
+// Remove book card
+function removeCard(event) {
+  event.target.parentElement.remove();
 };
 
 // Add Book to Library
@@ -68,23 +72,21 @@ function submitAction(event) {
   const newBookTitle = document.getElementById("title").value;
   const newBookAuthor = document.getElementById("author").value;
   const newBookPages = document.getElementById("pages").value;
-  const newBookRead = function() {
+  const readFunc = function() {
     const radioButtons = document.getElementsByName("read_status");
-    for (i = 0; i < radioButtons.length; i++) {
+    let readValue;
+    for (let i = 0; i < radioButtons.length; i++) {
       if (radioButtons[i].checked) {
-        return radioButtons[i].value;
-      };
+        readValue = radioButtons[i].value;
+      }
     };
+    return readValue;
   };
+  const newBookRead = readFunc();
   const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
   addBookToLibrary(newBook);
 };
 submit.addEventListener("click", submitAction);
-
-// Remove Book
-function removeCard(event) {
-  event.target.parentElement.remove();
-};
 
 // Book Objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");

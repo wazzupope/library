@@ -83,8 +83,7 @@ submit.addEventListener("click", submitAction);
 
 // Remove Book
 function removeCard(event) {
-  console.log(event.target);
-  // able to get target of clicked button, now need to figure out how to remove it's parent
+  event.target.parentElement.remove();
 };
 
 // Book Objects

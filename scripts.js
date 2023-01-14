@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 const myLibrary = [];
 let indexNum = 0;
+const removeButtonArray = [];
 
 // Book Constructor
 function Book(title, author, pages, read) {
@@ -27,33 +28,35 @@ function Book(title, author, pages, read) {
 const cardGrid = document.querySelector('#cardGrid');
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  const bookIndex = indexNum;
   // Create DOM element for card
   cardGrid.appendChild(document.createElement('div'));
-  cardGrid.lastChild.setAttribute("id", `card${bookIndex}`);
+  cardGrid.lastChild.setAttribute("id", `card${indexNum}`);
   cardGrid.lastChild.setAttribute("class", "cardBox");
-  const card = document.getElementById(`card${bookIndex}`);
+  const card = document.getElementById(`card${indexNum}`);
   // Create DOM element for title within card
   card.appendChild(document.createElement('h2'));
   card.lastChild.setAttribute("class", "cardTitle");
-  card.lastChild.textContent = myLibrary[bookIndex].title;
+  card.lastChild.textContent = myLibrary[indexNum].title;
   // Create Dom element for author within card
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardAuthor");
-  card.lastChild.textContent = myLibrary[bookIndex].author;
+  card.lastChild.textContent = myLibrary[indexNum].author;
   // Create DOM element for pages within card
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardPages");
-  card.lastChild.textContent = myLibrary[bookIndex].numOfPages();
+  card.lastChild.textContent = myLibrary[indexNum].numOfPages();
   // Create DOM element for read status within card
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardRead");
-  card.lastChild.textContent = myLibrary[bookIndex].readStatus();
+  card.lastChild.textContent = myLibrary[indexNum].readStatus();
   // Create DOM element for remove button within card
   card.appendChild(document.createElement('button'));
   card.lastChild.setAttribute("class", "removeButton");
-  card.lastChild.setAttribute("id", `removeButton${bookIndex}`);
+  card.lastChild.setAttribute("id", `removeButton${indexNum}`);
   card.lastChild.textContent = "Remove Book";
+  // Add event listener to remove button
+  const thisRemoveButton = document.getElementById(`removeButton${indexNum}`);
+  thisRemoveButton.addEventListener('click', removeCard);
   // Increment index number
   indexNum += 1;
 };
@@ -79,25 +82,9 @@ function submitAction(event) {
 submit.addEventListener("click", submitAction);
 
 // Remove Book
-const removeButton = document.querySelectorAll('.removeButton');
 function removeCard() {
   console.log("it heard the click");
-  this.id.remove();
-  indexNum -= 1;
-/* 
-div with id of card[number]
-
-.getElementsByClassName instead of querySelector, then loop to create the event listeners?
-
-need to figure out how to get a click on a button with a class to remove only the card clicked on
-probably need to add an id to each removeButton when created
-This may be why they were saying an index number should be added to each book
-You could use the index number on the id when creating the remove button, and then use that to also identify the card to be removed
-*/
 };
-removeButton.forEach(button => {
-  button.addEventListener('click', removeCard);
-});
 
 // Book Objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");

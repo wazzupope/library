@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
 const myLibrary = [];
+let indexNum = 0;
 
 // Book Constructor
 function Book(title, author, pages, read) {
@@ -17,13 +18,16 @@ function Book(title, author, pages, read) {
     }
     return readOrNot;
   };
+  this.index = function() {
+    return indexNum;
+  };
 };
 
 // Add Book to Library
 const cardGrid = document.querySelector('#cardGrid');
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  const bookIndex = myLibrary.length - 1;
+  const bookIndex = indexNum;
   // Create DOM element for card
   cardGrid.appendChild(document.createElement('div'));
   cardGrid.lastChild.setAttribute("id", `card${bookIndex}`);
@@ -48,12 +52,14 @@ function addBookToLibrary(book) {
   // Create DOM element for remove button within card
   card.appendChild(document.createElement('button'));
   card.lastChild.setAttribute("class", "removeButton");
+  card.lastChild.setAttribute("id", `removeButton${bookIndex}`);
   card.lastChild.textContent = "Remove Book";
+  // Increment index number
+  indexNum += 1;
 };
 
 // Submit button handling
 const submit = document.querySelector('#submit');
-submit.addEventListener("click", submitAction);
 function submitAction(event) {
   event.preventDefault();
   const newBookTitle = document.getElementById("title").value;
@@ -70,14 +76,17 @@ function submitAction(event) {
   const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
   addBookToLibrary(newBook);
 };
+submit.addEventListener("click", submitAction);
 
 // Remove Book
 const removeButton = document.querySelectorAll('.removeButton');
-removeButton.addEventListener("click", removeCard);
 function removeCard() {
-  document.querySelector(`#card${bookIndex}`)
-
+  console.log("it heard the click");
+  this.id.remove();
+  indexNum -= 1;
 /* 
+div with id of card[number]
+
 .getElementsByClassName instead of querySelector, then loop to create the event listeners?
 
 need to figure out how to get a click on a button with a class to remove only the card clicked on
@@ -85,7 +94,10 @@ probably need to add an id to each removeButton when created
 This may be why they were saying an index number should be added to each book
 You could use the index number on the id when creating the remove button, and then use that to also identify the card to be removed
 */
-}
+};
+removeButton.forEach(button => {
+  button.addEventListener('click', removeCard);
+});
 
 // Book Objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "yes");

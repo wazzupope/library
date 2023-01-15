@@ -42,6 +42,16 @@ label {
   margin: auto;
 }
 
+.toggleRead {
+  background: green;
+  color: white;
+}
+
+.toggleUnread {
+  background: red;
+  color: white;
+}
+
 .inputs {
   display: grid;
   width: 80%;

@@ -34,10 +34,6 @@ label {
   margin: auto;
 }
 
-.readToggleButton {
-  margin: auto;
-}
-
 .removeButton {
   margin: auto;
 }
@@ -45,11 +41,13 @@ label {
 .toggleRead {
   background: green;
   color: white;
+  margin: auto;
 }
 
 .toggleUnread {
   background: red;
   color: white;
+  margin: auto;
 }
 
 .inputs {

@@ -30,8 +30,14 @@ function removeCard(event) {
 
 // Read status button handling
 function toggleReadStatus(toggle) {
-  // change text content based on what the text content is (what's the best way to toggle in JS other than an if/else?)
-  // create change classes for the button based on what the text content is to enable style change in css
+  if (toggle.target.textContent === "Read") {
+    toggle.target.textContent = "Unread";
+    toggle.target.className = "toggleUnread";
+  }
+  else {
+    toggle.target.textContent = "Read";
+    toggle.target.className = "toggleRead";
+  };
   // need to delete .cardRead span afterward, as it will no longer have a purpose
   console.log(toggle.target.textContent);
 };
@@ -63,13 +69,14 @@ function addBookToLibrary(book) {
   card.lastChild.textContent = myLibrary[indexNum].readStatus();
   // Create DOM element for button to change read status with default of Unread
   card.appendChild(document.createElement('button'));
-  card.lastChild.setAttribute("class", "readToggleButton");
   card.lastChild.setAttribute("id", `readToggle${indexNum}`);
   if (book.readStatus === "yes") {
     card.lastChild.textContent = "Read";
+    card.lastChild.setAttribute("class", "toggleRead");
   }
   else {
     card.lastChild.textContent = "Unread";
+    card.lastChild.setAttribute("class", "toggleUnread");
   };
   // Add event listener to read toggle button
   const thisReadToggleButton = document.querySelector(`#readToggle${indexNum}`);

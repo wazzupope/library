@@ -23,6 +23,18 @@ function Book(title, author, pages, read) {
   };
 };
 
+// Determine if radio buttons are marked read or unread
+const readFunc = function() {
+  const radioButtons = document.getElementsByName("read_status");
+  let readValue;
+  for (let i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      readValue = radioButtons[i].value;
+    }
+  };
+  return readValue;
+};
+
 // Remove book card
 function removeCard(event) {
   event.target.parentElement.remove();
@@ -38,8 +50,6 @@ function toggleReadStatus(toggle) {
     toggle.target.textContent = "Read";
     toggle.target.className = "toggleRead";
   };
-  // newly added book with read radio checked are presenting as unread
-  // need to delete .cardRead span afterward, as it will no longer have a purpose
 };
 
 // Add Book to Library
@@ -70,6 +80,10 @@ function addBookToLibrary(book) {
     card.lastChild.textContent = "Read";
     card.lastChild.setAttribute("class", "toggleRead");
   }
+  else if (readFunc() === "read") {
+    card.lastChild.textContent = "Read";
+    card.lastChild.setAttribute("class", "toggleRead");
+  }
   else {
     card.lastChild.textContent = "Unread";
     card.lastChild.setAttribute("class", "toggleUnread");
@@ -96,16 +110,6 @@ function submitAction(event) {
   const newBookTitle = document.getElementById("title").value;
   const newBookAuthor = document.getElementById("author").value;
   const newBookPages = document.getElementById("pages").value;
-  const readFunc = function() {
-    const radioButtons = document.getElementsByName("read_status");
-    let readValue;
-    for (let i = 0; i < radioButtons.length; i++) {
-      if (radioButtons[i].checked) {
-        readValue = radioButtons[i].value;
-      }
-    };
-    return readValue;
-  };
   const newBookRead = readFunc();
   const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
   addBookToLibrary(newBook);

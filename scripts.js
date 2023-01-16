@@ -38,8 +38,8 @@ function toggleReadStatus(toggle) {
     toggle.target.textContent = "Read";
     toggle.target.className = "toggleRead";
   };
+  // newly added book with read radio checked are presenting as unread
   // need to delete .cardRead span afterward, as it will no longer have a purpose
-  console.log(toggle.target.textContent);
 };
 
 // Add Book to Library
@@ -63,14 +63,10 @@ function addBookToLibrary(book) {
   card.appendChild(document.createElement('span'));
   card.lastChild.setAttribute("class", "cardPages");
   card.lastChild.textContent = myLibrary[indexNum].numOfPages();
-  // Create DOM element for read status within card
-  card.appendChild(document.createElement('span'));
-  card.lastChild.setAttribute("class", "cardRead");
-  card.lastChild.textContent = myLibrary[indexNum].readStatus();
   // Create DOM element for button to change read status with default of Unread
   card.appendChild(document.createElement('button'));
   card.lastChild.setAttribute("id", `readToggle${indexNum}`);
-  if (book.readStatus === "yes") {
+  if (book.readStatus() === "Read: Yes") {
     card.lastChild.textContent = "Read";
     card.lastChild.setAttribute("class", "toggleRead");
   }
